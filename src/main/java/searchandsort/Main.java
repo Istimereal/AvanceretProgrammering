@@ -7,16 +7,172 @@ import java.util.*;
 
 public class Main {
 
+    static HashSet<Integer> numbers = new HashSet<Integer>();
+
+    static ArrayList<Integer> numberList = new ArrayList<>();
+/*
     public static void main(String[] args) {
         // testComplexity();
        // testLinearAndBinarySearch();
        // testSort();
 
+        int n = 10000; // justér for at demonstrere tydeligt
+
+        long start = System.nanoTime();
+        System.out.println(start);
+        hashSet(n);
+        long stop = System.nanoTime();
+        System.out.println(stop);
+
+
+        long start2 = System.nanoTime();
+        System.out.println("2- " + start2);
+        addHashSet(1000);
+        long stop2 = System.nanoTime();
+        System.out.println("2- " + stop2);
+
+    }
+
+    */
+/*
+    public static void main(String[] args) {
+        int n = 10000;
+        int target = 3333;
+
+        measureInsertArrayList(n);
+        measureInsertHashSet(n);
+        measureSearchArrayList(target);
+        measureSearchHashSet(target);
+    }
+
+    */
+
+    public static void main(String[] args) {
+        int n = 10000;
+        int extra = 1000;
+        int target = 10000;
+
+        measureHashSet(n);
+        measureAddHashSet(extra);
+        measureSearchHashSet(target);
+
+        measureArrayList(n);
+        measureAddArrayList(extra);
+        measureSearchArrayList(target);
+    }
+
+    public static void measureInsertArrayList(int n) {
+        numberList.clear();
+
+        long start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            numberList.add(i);
+        }
+        long stop = System.nanoTime();
+
+        System.out.println("ArrayList insert: " + (stop - start) + " ns");
+    }
+
+    public static void measureInsertHashSet(int n) {
+        numbers.clear();
+
+        long start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            numbers.add(i);
+        }
+        long stop = System.nanoTime();
+
+        System.out.println("HashSet insert: " + (stop - start) + " ns");
+    }
+
+    public static void measureSearchArrayList(int target) {
+        long start = System.nanoTime();
+        boolean found = numberList.contains(target);
+        long stop = System.nanoTime();
+
+        System.out.println("ArrayList contains(" + target + "): " + found + " - " + (stop - start) + " ns");
+    }
+
+    public static void measureSearchHashSet(int target) {
+        long start = System.nanoTime();
+        boolean found = numbers.contains(target);
+        long stop = System.nanoTime();
+
+        System.out.println("HashSet contains(" + target + "): " + found + " - " + (stop - start) + " ns");
+
+    }
+
+    /// ///////////////////////////////////////////////////////////// nyt
+    public static void addArrayList(int n) {
+        for (int i = 10000; i < 10000 + n; i++) {
+            numberList.add(i);
+            numberList.add(i * i);
+        }
+    }
+
+    public static void arrayList(int n) {
+        for (int i = 0; i < n; i++) {
+            numberList.add(i);
+            numberList.add(i * i);
+        }
+    }
+
+    public static void measureHashSet(int n) {
+        numbers.clear();
+
+        long start = System.nanoTime();
+        hashSet(n);
+        long stop = System.nanoTime();
+
+        System.out.println("hashSet(" + n + "): " + (stop - start) + " ns");
+    }
+
+    public static void measureAddHashSet(int n) {
+        long start = System.nanoTime();
+        addHashSet(n);
+        long stop = System.nanoTime();
+
+        System.out.println("addHashSet(" + n + "): " + (stop - start) + " ns");
+    }
+
+    public static void measureArrayList(int n) {
+        numberList.clear();
+
+        long start = System.nanoTime();
+        arrayList(n);
+        long stop = System.nanoTime();
+
+        System.out.println("arrayList(" + n + "): " + (stop - start) + " ns");
+    }
+
+    public static void measureAddArrayList(int n) {
+        long start = System.nanoTime();
+        addArrayList(n);
+        long stop = System.nanoTime();
+
+        System.out.println("addArrayList(" + n + "): " + (stop - start) + " ns");
+    }
+
+
+    public static void addHashSet(int n) {
+        for (int i = 10000; i < 10000 + n; i++) {
+            numbers.add(i);
+            numbers.add(i*i);
+        }
+    }
+
+
+    public static void hashSet(int n) {
+        for (int i = 0; i < n; i++) {
+            numbers.add(i);
+            numbers.add(i*i);
+        }
     }
 
     private static void testComplexity() {
         int n = 10000; // justér for at demonstrere tydeligt
 
+     /*
         // O(1)
         long start = System.currentTimeMillis();
         BigOExamples.constantTime(n);
@@ -41,6 +197,8 @@ public class Main {
         BigOExamples.quadraticTime(n);
         stop = System.currentTimeMillis();
         System.out.println("Time for O(n²): " + (stop - start) + " ms\n");
+
+        */
     }
 
     private static void testLinearAndBinarySearch() {
