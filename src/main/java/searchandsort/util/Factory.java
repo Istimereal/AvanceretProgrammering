@@ -18,6 +18,13 @@ public class Factory {
 
     private static void readStudentNames(){
         File file = new File(studentPath);
+
+        System.out.println("Working directory:");
+        System.out.println(System.getProperty("user.dir"));
+
+        System.out.println("Looking for file:");
+        System.out.println(file.getAbsolutePath());
+
         try {
             Scanner scanner = new Scanner(file);
             while(scanner.hasNext()){
