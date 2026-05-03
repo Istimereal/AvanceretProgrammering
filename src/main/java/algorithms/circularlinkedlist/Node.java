@@ -1,8 +1,8 @@
 package algorithms.circularlinkedlist;
 
-class Node {
+public class Node {
     int value;
-    Node next;
+    public Node next;
 
     Node(int value) {
         this.value = value;
