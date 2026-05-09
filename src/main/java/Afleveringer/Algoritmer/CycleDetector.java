@@ -52,3 +52,7 @@ public class CycleDetector {
         return false;
     }
 }
+
+//Bonusopgave: Kan du forudse hvad floydexample.TraversingArrays.hasCycle(..) vil returnere med
+// inputtet int[] test = {2, 0, 1} og hvorfor?
+//returnerer true da de begge går fra index 0 til 2 til 1, så begge looper
