@@ -1,8 +1,6 @@
-package Afleveringer;
+package Afleveringer.kompleksitet;
 
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.TreeSet;
 
 public class EntityWithComparable implements Comparable<EntityWithComparable> {
 
