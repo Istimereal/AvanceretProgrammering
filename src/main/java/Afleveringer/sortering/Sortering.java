@@ -6,45 +6,49 @@ import java.util.Random;
 public class Sortering {
 
 
+   static int count = -1;
 
     public static void main(String[] args) {
 
-        int[] arr = makeRandomArray(10);
+  //      int[] arr = makeRandomArray(10);
 
      //   bubbleSortAray(arr);
 
-        testBubble(8);
+        testBubble(800);
 
     }
 
     private static void testBubble(int size) {
-       int[] test = makeRandomArray(8);
+       int[] test = makeRandomArray(size);
 
-         System.out.println("Merge Sort - før " + test);
-        long start = System.currentTimeMillis();
+         System.out.println("Merge Sort - før " + Arrays.toString(test));
+        long start = System.currentTimeMillis();    //System.nanoTime();
         mergeSortArray(test);
-        long stop = System.currentTimeMillis();
-        System.out.println("Merge Sort - efter" + test);
-       System.out.println("Merge Sort - tid: " + (stop - start) + " ms");
+        long stop = System.currentTimeMillis();      // System.nanoTime();
+
+        System.out.println("Merge Sort - efter" + Arrays.toString(test));
+       System.out.println("Merge Sort - tid: " + (stop - start) + " nano sekunder");
     }
 
+
     public static void mergeSortArray(int[] arr){
+      count += 1;
 
         int size = arr.length;
         if(size < 2){ return;}
 
         int left = size/2;
-        int rigth = size - left;
+        int right = size - left;
 
         int[] leftside = new int[left];
-        int[] rightside = new int[rigth];
+        int[] rightside = new int[right];
 
         for(int i = 0; i < left; i++){
             leftside[i] = arr[i];
         }
 
-        for(int i = 0; i < rigth; i++){
-            rightside[i] = arr[i];
+        for(int i = 0; i < right; i++){
+            rightside[i] = arr[left + i];
         }
 
         mergeSortArray(leftside);
@@ -70,23 +74,23 @@ public class Sortering {
                 r++;
                 i++;
             }
+            }
 
-            while(l <= left.length){
+            while(l < left.length){
 
                 arr[i] = left[l];
                 l++;
                 i++;
             }
 
-            while (r <= right.length)
-            {
+
+            while (r < right.length) {
+
+
                 arr[i] = right[r];
                 r++;
                 i++;
             }
-        }
-
-
     }
 
     public static void bubbleSortAray(int[] arr)
@@ -98,7 +102,7 @@ for(int i = 0; i< size - 1; i++) {
 
     for(int j = 0; j < size - i - 1; j++){
 
-        if(arr[j] < arr[j + 1]){
+        if(arr[j] > arr[j + 1]){
             swap(arr, i, j);
         }
     }
@@ -128,5 +132,10 @@ for(int i = 0; i< size - 1; i++) {
         }
 
         return arr;
+    }
+
+    public static void quickSort(){
+
+
     }
 }
