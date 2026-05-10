@@ -4,7 +4,11 @@ import java.util.Arrays;
 
 public class NQueens {
 
-    static final int N = 4;
+    static final int N = 14;
+
+   static int count = 0;
+
+
 
     static char[][] board = new char[N][N];
 
@@ -20,6 +24,9 @@ public class NQueens {
     static void placeQueen(int row) {
         if (row == N) {
             printBoard();
+
+            count ++;
+            System.out.println("Antal løsninger = " + count);
             return;
         }
 
@@ -36,6 +43,8 @@ public class NQueens {
     static boolean isSafe(int row, int col) {
         // Tjek kolonne og diagonaler (ikke rækker, da vi tager det række for række)
         // Vi behøver kun tjekke kolonner og diagonaler over denne række (i < row) da vi arbejder os nedad
+
+
         for (int i = 0; i < row; i++) {
             // Kolonnen
             if (board[i][col] == 'Q') return false;
