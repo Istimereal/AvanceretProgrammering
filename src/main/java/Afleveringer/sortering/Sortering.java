@@ -1,15 +1,6 @@
-package Afleveringer;
+package Afleveringer.sortering;
 
-import searchandsort.SortExamples;
-import searchandsort.entities.Student;
-import searchandsort.util.Factory;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
-
-import java.util.*;
 
 
 public class Sortering {

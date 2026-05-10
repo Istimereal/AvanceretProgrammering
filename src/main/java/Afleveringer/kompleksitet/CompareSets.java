@@ -1,4 +1,4 @@
-package Afleveringer;
+package Afleveringer.kompleksitet;
 
 import java.util.HashSet;
 import java.util.TreeSet;
